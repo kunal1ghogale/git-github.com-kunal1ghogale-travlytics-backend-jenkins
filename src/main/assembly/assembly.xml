@@ -1,0 +1,25 @@
+<assembly>
+	<id>bundle</id> 
+	<formats>
+		<format>tar.gz</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<fileSets>
+		<fileSet>
+			<outputDirectory>travlytics-backend</outputDirectory>
+		    <directory>${project.build.directory}</directory>
+			<includes>
+				<include>*.war</include>
+			</includes>		
+		</fileSet>
+		<fileSet>
+			<outputDirectory>travlytics-backend</outputDirectory>
+			<directory>src/main/resources</directory>
+		</fileSet>
+		<fileSet>
+                        <outputDirectory>travlytics-backend/lib</outputDirectory>
+                        <directory>lib</directory>
+                </fileSet>
+
+</fileSets>
+</assembly>

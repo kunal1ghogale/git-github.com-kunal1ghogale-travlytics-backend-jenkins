@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+		    http://www.springframework.org/schema/mvc 
+		    http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+		    http://www.springframework.org/schema/beans 
+		    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		    http://www.springframework.org/schema/context 
+		    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		    http://www.springframework.org/schema/util 
+		    http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+	<!-- Scans for application @Components to deploy -->
+	<context:component-scan base-package="com.travlytics" />
+
+    <!-- Configures the @Controller programming model -->
+    <mvc:annotation-driven/>
+    
+    <context:annotation-config/>
+
+    <context:property-placeholder location="classpath:travlytics.backend.properties"/> 
+    
+	<!-- Imports the configurations of the different infrastructure systems of the application -->
+	<import resource="rest-client-config.xml" />
+
+</beans>
