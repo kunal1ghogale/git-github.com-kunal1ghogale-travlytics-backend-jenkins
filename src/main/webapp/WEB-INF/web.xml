@@ -51,7 +51,7 @@
 	<!-- Map all requests to the Dispatcher Servlet for handling -->
 	<servlet-mapping>
 		<servlet-name>Spring MVC Dispatcher Servlet</servlet-name>
-		<url-pattern>/travlytics-backend/*</url-pattern>
+		<url-pattern>/*</url-pattern>
 	</servlet-mapping>
 
 	<welcome-file-list>

@@ -39,7 +39,7 @@ public class LoginSignupDAO implements Serializable {
 	 * @throws SQLException
 	 */
 	public Integer storeSignedupUser(UserAccount user) throws SQLException {
-		String sql = "INSERT INTO travlytics.accounts (name, email, password, facebookToken, role, active, updatedby) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO travlytics.public.accounts (name, email, password, facebookToken, role, active, updatedby) VALUES (?, ?, ?, ?, ?, ?, ?)";
 		UserAccount temp = getUserAccountByUsername(user.getUsername());
 		if (temp != null) {
 			return ErrorSuccessConstants.USER_ALREADY_EXISTS;
@@ -54,7 +54,7 @@ public class LoginSignupDAO implements Serializable {
     		preparedStatement.setString(3, user.getPassword());
     		preparedStatement.setString(4, user.getFacebookToken());
     		preparedStatement.setString(5, Constants.DEFAULT_ROLE);
-    		preparedStatement.setInt(6, Constants.ACTIVE);
+    		preparedStatement.setBoolean(6, Constants.ACTIVE);
     		preparedStatement.setString(7, Constants.DEFAULT_USER);
     		Integer val = preparedStatement.executeUpdate();
     		if (val == 1) {
@@ -82,7 +82,7 @@ public class LoginSignupDAO implements Serializable {
 	 * @throws SQLException 
 	 */
 	public UserAccount getUserAccountByUsername(String username) throws SQLException {
-		String sql = "Select name, email, password, facebookToken from travlytics.accounts where email = ? and active = 1";
+		String sql = "Select name, email, password, facebookToken from travlytics.public.accounts where email = ? and active = true";
 		Connection conn = null;
 		PreparedStatement preparedStatement = null;
 		UserAccount user = null;

@@ -17,5 +17,5 @@ public class ErrorSuccessConstants {
 	
 	public static final Integer USER_LOGGED_IN = 2;
 	
-	
+	public static final Integer INVALID_EVENT = -1;
 }

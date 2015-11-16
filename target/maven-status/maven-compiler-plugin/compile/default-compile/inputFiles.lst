@@ -1,0 +1,12 @@
+/Users/Pooja/Documents/TravlyticsBackEnd/travlytics-backend/src/main/java/com/travlytics/dao/LoginSignupDAO.java
+/Users/Pooja/Documents/TravlyticsBackEnd/travlytics-backend/src/main/java/com/travlytics/service/LoginSignupService.java
+/Users/Pooja/Documents/TravlyticsBackEnd/travlytics-backend/src/main/java/com/travlytics/controllers/LoginSignupController.java
+/Users/Pooja/Documents/TravlyticsBackEnd/travlytics-backend/src/main/java/com/travlytics/model/PlacesVO.java
+/Users/Pooja/Documents/TravlyticsBackEnd/travlytics-backend/src/main/java/com/travlytics/model/UserAccount.java
+/Users/Pooja/Documents/TravlyticsBackEnd/travlytics-backend/src/main/java/com/travlytics/service/PlacesService.java
+/Users/Pooja/Documents/TravlyticsBackEnd/travlytics-backend/src/main/java/com/travlytics/controllers/PlacesController.java
+/Users/Pooja/Documents/TravlyticsBackEnd/travlytics-backend/src/main/java/com/travlytics/exception/TravlyticsException.java
+/Users/Pooja/Documents/TravlyticsBackEnd/travlytics-backend/src/main/java/com/travlytics/utils/Constants.java
+/Users/Pooja/Documents/TravlyticsBackEnd/travlytics-backend/src/main/java/com/travlytics/dao/PlacesDAO.java
+/Users/Pooja/Documents/TravlyticsBackEnd/travlytics-backend/src/main/java/com/travlytics/model/PlacePercentage.java
+/Users/Pooja/Documents/TravlyticsBackEnd/travlytics-backend/src/main/java/com/travlytics/utils/ErrorSuccessConstants.java

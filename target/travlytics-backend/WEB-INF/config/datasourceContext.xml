@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context 
+http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="validationQuery" value="select now()S" />
+		<property name="testOnBorrow" value="true" />
+		<property name="testOnReturn" value="true" />
+		<property name="testWhileIdle" value="true" />
+		<property name="timeBetweenEvictionRunsMillis" value="1800000" />
+		<property name="numTestsPerEvictionRun" value="3" />
+		<property name="minEvictableIdleTimeMillis" value="1800000" />
+	</bean>
+
+	<bean id="loginSignupDAO" class="com.travlytics.dao.LoginSignupDAO">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="loginSignupService" class="com.travlytics.service.LoginSignupService">
+		<property name="loginSignupDAO" ref="loginSignupDAO" />
+	</bean>
+
+	<bean id="loginSignupController" class="com.travlytics.controllers.LoginSignupController">
+		<property name="loginSignupService" ref="loginSignupService" />
+	</bean>
+	
+	<bean id="placesDAO" class="com.travlytics.dao.PlacesDAO">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="placesService" class="com.travlytics.service.PlacesService">
+		<property name="placesDAO" ref="placesDAO" />
+	</bean>
+
+	<bean id="placesController" class="com.travlytics.controllers.PlacesController">
+		<property name="placesService" ref="placesService" />
+	</bean>
+
+	<context:property-placeholder location="classpath:travlytics.backend.properties" />
+
+</beans>

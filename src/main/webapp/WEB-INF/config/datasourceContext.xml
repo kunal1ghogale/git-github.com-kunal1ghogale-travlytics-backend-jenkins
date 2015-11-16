@@ -13,7 +13,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 		<property name="url" value="${jdbc.url}" />
 		<property name="username" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.password}" />
-		<property name="validationQuery" value="select 1" />
+		<property name="validationQuery" value="select now()S" />
 		<property name="testOnBorrow" value="true" />
 		<property name="testOnReturn" value="true" />
 		<property name="testWhileIdle" value="true" />
@@ -32,6 +32,18 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 	<bean id="loginSignupController" class="com.travlytics.controllers.LoginSignupController">
 		<property name="loginSignupService" ref="loginSignupService" />
+	</bean>
+	
+	<bean id="placesDAO" class="com.travlytics.dao.PlacesDAO">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="placesService" class="com.travlytics.service.PlacesService">
+		<property name="placesDAO" ref="placesDAO" />
+	</bean>
+
+	<bean id="placesController" class="com.travlytics.controllers.PlacesController">
+		<property name="placesService" ref="placesService" />
 	</bean>
 
 	<context:property-placeholder location="classpath:travlytics.backend.properties" />
